@@ -23,9 +23,16 @@ android {
         }
     }
 
-    task applySkinRes(type:Copy,dependsOn: 'assembleRelease') {
+    /*task applySkinRes(type:Copy,dependsOn: 'assembleRelease') {
         from (project.buildDir.absolutePath + '/outputs/apk/release')
         into (project.rootDir.absolutePath + '/app/src/main/assets/skins')
+        include(project.name+'-release-unsigned.apk')
+        rename(project.name+'-release-unsigned.apk', project.name+'.skin')
+    }*/
+
+    task applySkinRes(type:Copy,dependsOn: 'assembleRelease') {
+        from (project.buildDir.absolutePath + '/outputs/apk/release')
+        into (project.rootDir.absolutePath + '/skinRes')
         include(project.name+'-release-unsigned.apk')
         rename(project.name+'-release-unsigned.apk', project.name+'.skin')
     }
