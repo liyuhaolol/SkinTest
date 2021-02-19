@@ -1,0 +1,5 @@
+include ':appSkin:red'
+include ':appSkin:night'
+include ':app'
+
+rootProject.name = "SkinTest"
